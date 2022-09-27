@@ -26,9 +26,9 @@ public class Hours {
 		System.out.println("Введите кол-во отработанных за месяц часов по графику: ");
 		normal = inp.nextShort();
 		System.out.println("Введите кол-во сверхурочных часов: ");
-		overtime = inp.nextShort();;
+		overtime = inp.nextShort();
 		System.out.println("Введите кол-во отработанных за месяц часов в выходные: ");
-		weekends = inp.nextShort();;
+		weekends = inp.nextShort();
 	}
 	//метод вывода
 	public void output(){

@@ -30,5 +30,17 @@ public class Main {
 		System.out.println("\n" + "h3:");
 		h3.output();
 		System.out.println("\n" + "Отработано всего часов h3: " + h3.allhours());
+		byte a = 6;
+		float b = 1.2f;
+		Subordinates sub1 = new Subordinates();
+		Subordinates sub2 = new Subordinates(a);
+		Subordinates sub3 = new Subordinates(a, b);
+		sub1.input();
+		System.out.println("\n" + "sub1:");
+		sub1.output();
+		System.out.println("\n" + "sub2:");
+		sub2.output();
+		System.out.println("\n" + "sub3:");
+		sub3.output();
 	}
 }
