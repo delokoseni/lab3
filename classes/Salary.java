@@ -74,6 +74,24 @@ public class Salary {
 		System.out.println("Учет наличия подчиненных: " + subsstatus);
 	}
 	
+	//метод возврата
+	public short[] get(){
+		short[] s = new short[6];
+		s[0] = (short)overtimecost;
+		s[1] = (short)weekendcost;
+		s[2] = exppercent;
+		s[3] = subspercent;
+		if(expstatus)
+			s[4] = (short)1;
+		else
+			s[4] = (short)0;
+		if(subsstatus)
+			s[5] = (short)1;
+		else
+			s[5] = (short)0;
+		return s;
+	}
+	
 	//поля класса
 	private byte overtimecost; //коэффициент умножения оплаты сверхурочных часов
 	private byte weekendcost; //коэффициент умножения оплаты часов отработанных в выходные

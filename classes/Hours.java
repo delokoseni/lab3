@@ -52,7 +52,7 @@ public class Hours {
 	}
 	
 	//метод возвращающий все отработанные за месяц часы в виде массива
-	public short[] gethours(){
+	public short[] get(){
 		short[] h = new short[3];
 		h[0] = normal;
 		h[1] = overtime;

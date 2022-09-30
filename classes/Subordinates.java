@@ -7,16 +7,19 @@ public class Subordinates {
 		amount = a;
 		asos = A;
 	}
+	
 	//конструктор класса с одним параметром
 	public Subordinates(byte x){
 		amount = x;
 		asos = x;
 	}
+	
 	//конструктор класса без параметров
 	public Subordinates(){
 		amount = 0;
 		asos = 0;
 	}
+	
 	//метод подсчета среднего стажа
 	public float averageseniority(byte number){
 		Scanner inp = new Scanner(System.in);
@@ -33,6 +36,7 @@ public class Subordinates {
 		avesen = avesen / number;
 	return avesen;
 	}
+	
 	//метод ввода
 	public void input(){
 		Scanner inp = new Scanner(System.in);
@@ -53,6 +57,15 @@ public class Subordinates {
 		else
 			asos = 0;
 	}
+	
+	//метод возвращающий значения полей
+	public float[] get(){
+		float[] a = new float[2];
+		a[0] = (float)amount;
+		a[1] = asos;
+		return a;
+	}
+	
 	//метод вывода
 	public void output(){
 		System.out.println("Кол-во подчиненных: " + amount);
