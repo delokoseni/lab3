@@ -1,4 +1,5 @@
 import classes.*;
+import java.util.Scanner;
 
 public class Main {
 	public static void main(String args[]) {
@@ -42,5 +43,38 @@ public class Main {
 		sub2.output();
 		System.out.println("\n" + "sub3:");
 		sub3.output();
+		String str = "Менеджер";
+		Jobtitle jt1 = new Jobtitle();
+		Jobtitle jt2 = new Jobtitle(over);
+		Jobtitle jt3 = new Jobtitle(str, over, sub1);
+		jt1.input();
+		System.out.println("\n" + "jt1:");
+		jt1.output();
+		System.out.println("\n" + "jt2:");
+		jt2.output();
+		System.out.println("\n" + "jt3:");
+		jt3.output();
+		System.out.println("Зарплата jt1 выше/ниже 120 на " + jt1.comparisonhc(norm) + " процентов");
+		Employee emp1 = new Employee();
+		Employee emp2 = new Employee(10);
+		Employee emp3 = new Employee(11, exp1, h1, jt1);
+		emp1.input();
+		System.out.println("\n" + "emp1:");
+		emp1.output();
+		System.out.println("\n" + "emp2:");
+		emp2.output();
+		System.out.println("\n" + "emp3:");
+		emp3.output();
+		System.out.println(emp1.getpremium((short)150));
+		Salary sal1 = new Salary();
+		Salary sal2 = new Salary((byte)5);
+		Salary sal3 = new Salary((byte)50, (byte)100, (short)5, (short)10, true, true);
+		sal1.input();
+		System.out.println("\n" + "sal1:");
+		sal1.output();
+		System.out.println("\n" + "sal2:");
+		sal2.output();
+		System.out.println("\n" + "sal3:");
+		sal3.output();
 	}
 }
