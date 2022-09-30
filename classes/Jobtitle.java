@@ -49,8 +49,14 @@ public class Jobtitle {
 	}
 	
 	//метод возвращающий значения полей класса
-	public void get(){
-
+	public float[] get(){
+		float[] j = new float[3];
+		j[0] = (float)hourlycost;
+		float[] j1 = new float[2];
+		j1 = subs.get();
+		j[1] = j1[0];
+		j[2] = j1[1];
+		return j;
 	}
 	
 	//поля класса
