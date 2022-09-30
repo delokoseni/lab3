@@ -2,24 +2,28 @@ package classes;
 import java.util.Scanner;
 
 public class Hours {
+	
 	//конструктор класса со всеми параметрами
 	public Hours(short n, short o, short w){
 		normal = n;
 		overtime = o;
 		weekends = w;
 	}
+	
 	//конструктор класса с одним параметром
 	public Hours(short x){
 		normal = x;
 		overtime = x;
 		weekends = x;
 	}
+	
 	//конструктор класса без параметров
 	public Hours(){
 		normal = 0;
 		overtime = 0;
 		weekends = 0;
 	}
+	
 	//метод ввода
 	public void input(){
 		Scanner inp = new Scanner(System.in);
@@ -30,12 +34,14 @@ public class Hours {
 		System.out.println("Введите кол-во отработанных за месяц часов в выходные: ");
 		weekends = inp.nextShort();
 	}
+	
 	//метод вывода
 	public void output(){
 		System.out.println("Отработано часов за месяц(по графику): " + normal);
 		System.out.println("Отработано часов за месяц(сверхурочно): " + overtime);
 		System.out.println("Отработано часов за месяц(в выходные дни): " + weekends);
 	}
+	
 	//метод возвращающий все отработанные за месяц часы
 	public short allhours(){
 		short all = 0;
@@ -44,6 +50,17 @@ public class Hours {
 		all += weekends;
 		return all;
 	}
+	
+	//метод возвращающий все отработанные за месяц часы в виде массива
+	public short[] gethours(){
+		short[] h = new short[3];
+		h[0] = normal;
+		h[1] = overtime;
+		h[2] = weekends;
+		return h;
+	}
+	
+	//поля класса
 	private short normal; //кол-во часов, отработанных по графику
 	private short overtime; //кол-во часов, отработанных сверхурочно
 	private short weekends; //кол - во часов, отработанных в выходные дни
