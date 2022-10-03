@@ -71,6 +71,13 @@ public class Subordinates {
 		System.out.println("Кол-во подчиненных: " + amount);
 		System.out.println("Средний стаж подчиненных: " + asos);
 	}
+	
+	//метод возвращающий количество полчиненных
+	public byte getamount(){
+		return amount;
+	}
+	
+	//поля класса
 	private byte amount; //кол-во подчиненных
 	private float asos; //average seniority of subordinates - средний стаж подчиненных
 }

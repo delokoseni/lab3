@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Salary {
 	
 	//конструктор со всеми параметрами
-	public Salary(byte over, byte week, short expper, short subsper, boolean expst, boolean subsst){
+	public Salary(short over, short week, short expper, short subsper, boolean expst, boolean subsst){
 		overtimecost = over;
 		weekendcost = week;
 		exppercent = expper;
@@ -14,9 +14,9 @@ public class Salary {
 	}
 	
 	//конструктор с одним параметром
-	public Salary(byte x){
-		overtimecost = x;
-		weekendcost = x;
+	public Salary(short x){
+		overtimecost = (short)x;
+		weekendcost = (short)x;
 		exppercent = (short)x;
 		subspercent = (short)x;
 		if(x > 0){
@@ -31,8 +31,8 @@ public class Salary {
 	
 	//конструктор без параметров
 	public Salary() {
-		overtimecost = (byte)0;
-		weekendcost = (byte)0;
+		overtimecost = (short)0;
+		weekendcost = (short)0;
 		exppercent = (short)0;
 		subspercent = (short)0;
 		expstatus = false;
@@ -44,9 +44,9 @@ public class Salary {
 		byte a;
 		Scanner inp = new Scanner(System.in, "Cp866");
 		System.out.println("На сколько процентов увеличивать почасовую оплату сверхурочных: ");
-		overtimecost = inp.nextByte();
+		overtimecost = inp.nextShort();
 		System.out.println("На сколько процентов увеличивать почасовую оплату в выходные: ");
-		weekendcost = inp.nextByte();
+		weekendcost = inp.nextShort();
 		System.out.println("Учитывать ли стаж (0 - нет, иначе - да): ");
 		a = inp.nextByte();
 		if(a != 0) {
@@ -74,29 +74,28 @@ public class Salary {
 		System.out.println("Учет наличия подчиненных: " + subsstatus);
 	}
 	
-	//метод возврата
-	public short[] get(){
-		short[] s = new short[6];
-		s[0] = (short)overtimecost;
-		s[1] = (short)weekendcost;
-		s[2] = exppercent;
-		s[3] = subspercent;
+	//вспомогательный метод при вычислении зарплаты
+	public int overtimeweekends(short overtime, short weekends){
+		int x = 0;
+		x += overtime * overtimecost;
+		x += weekends * weekendcost;
+		return x;
+	}
+	
+	//вспомогательный метод при вычислении зарплаты
+	public int allmoney(int salary, Experience exp, Jobtitle jt){
 		if(expstatus)
-			s[4] = (short)1;
-		else
-			s[4] = (short)0;
+			salary += (float)salary / 100 * exppercent * exp.allexp();
 		if(subsstatus)
-			s[5] = (short)1;
-		else
-			s[5] = (short)0;
-		return s;
+			salary += (float)salary / 100 * subspercent * jt.getamount();
+		return salary;
 	}
 	
 	//поля класса
-	private byte overtimecost; //коэффициент умножения оплаты сверхурочных часов
-	private byte weekendcost; //коэффициент умножения оплаты часов отработанных в выходные
-	private short exppercent; //коэффициент умножения оплаты за стаж
-	private short subspercent; //коэффициент умножения оплаты за наличие подчененных
+	private short overtimecost; //процент увеличения оплаты сверхурочных часов
+	private short weekendcost; //процент увеличения оплаты часов отработанных в выходные
+	private short exppercent; //процент увеличения оплаты за стаж
+	private short subspercent; //процент увеличения оплаты за наличие подчененных
 	private boolean expstatus; //учет стажа
 	private boolean subsstatus; //учет наличия подчиненных
 }

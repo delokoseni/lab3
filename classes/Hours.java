@@ -51,13 +51,12 @@ public class Hours {
 		return all;
 	}
 	
-	//метод возвращающий все отработанные за месяц часы в виде массива
-	public short[] get(){
-		short[] h = new short[3];
-		h[0] = normal;
-		h[1] = overtime;
-		h[2] = weekends;
-		return h;
+	//метод возвращающий зарплаты за все отработанные часы
+	public int hoursmoney(Jobtitle jt,Salary sal){
+		int salary = 0;
+		salary += jt.jtmoney(normal);
+		salary += sal.overtimeweekends(overtime, weekends);
+		return salary;
 	}
 	
 	//поля класса

@@ -48,15 +48,16 @@ public class Jobtitle {
 		return percent;
 	}
 	
-	//метод возвращающий значения полей класса
-	public float[] get(){
-		float[] j = new float[3];
-		j[0] = (float)hourlycost;
-		float[] j1 = new float[2];
-		j1 = subs.get();
-		j[1] = j1[0];
-		j[2] = j1[1];
-		return j;
+	//метод вспомогательный
+	public int jtmoney(int normal){
+		int x = 0;
+		x += normal * hourlycost;
+		return x;
+	}
+	
+	//метод возвращающий количество подчиненных сотрудника
+	public byte getamount(){
+		return subs.getamount();
 	}
 	
 	//поля класса

@@ -54,7 +54,7 @@ public class Main {
 		jt2.output();
 		System.out.println("\n" + "jt3:");
 		jt3.output();
-		System.out.println("Зарплата jt1 выше/ниже 120 на " + jt1.comparisonhc(norm) + " процентов");
+		System.out.println("Почасовая оплата jt1 выше/ниже 120 на " + jt1.comparisonhc(norm) + " процентов");
 		Employee emp1 = new Employee();
 		Employee emp2 = new Employee(10);
 		Employee emp3 = new Employee(11, exp1, h1, jt1);

@@ -50,15 +50,6 @@ public class Experience {
 		return all;
 	}
 	
-	//метод возвращающий значения полей
-	public byte[] get(){
-		byte[] e = new byte[3];
-		e[0] = workingyears;
-		e[1] = army;
-		e[2] = maternityleave;
-		return e;
-	}
-	
 	//поля класса
 	private byte workingyears; //кол-во реально отработанных лет
 	private byte army; //кол-во лет в армии, если сохранялось рабочее место

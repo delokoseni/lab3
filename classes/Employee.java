@@ -48,27 +48,8 @@ public class Employee {
 	//метод подсчета зарплаты
 	public int getsalary(Salary sal){
 		int salary = 0;
-		float experience = (float)exp.allexp();
-		short[] h = new short[3]; //для часов
-		short[] s = new short[5]; //для зарплаты
-		byte[] e = new byte[3]; //для стажа
-		float[] j = new float[3]; //для должности 
-		Subordinates sub = new Subordinates();
-		h = hour.get();
-		s = sal.get();
-		e = exp.get();
-		j = jt.get();
-		salary += h[0] * j[0];
-		salary += h[1] * s[0];
-		salary += h[2] * s[1];
-		if (s[4] == 1)
-			salary += (float)salary / 100 * s[2] * experience;
-		else
-			salary += (float)salary / 100 * s[2] * e[0];
-		if (j[1] > 0 && s[5] == 1)
-			salary += j[1] * salary / 100 * s[3] / j[2];
-		else
-			salary += j[1] * salary / 100 * s[3];
+		salary += hour.hoursmoney(jt, sal);
+		salary = sal.allmoney(salary, exp, jt);
 		return salary;
 	}
 	
